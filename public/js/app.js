@@ -53440,6 +53440,7 @@ var app = new Vue({
     infoWindowOpened: false
   },
   mounted: function mounted() {
+    //Mount To show all the Points on map
     this.renderlocations = _toConsumableArray(this.locations);
     console.log(this.renderlocations);
   },
@@ -53449,15 +53450,17 @@ var app = new Vue({
         return location.Gender == "Female";
       });
       this.renderlocations = females;
-      console.log(this.locations);
+      console.log(this.locations); //for testing purpose
     },
     maleGender: function maleGender() {
-      //this.renderlocations = [...this.locations];
       var males = this.locations.filter(function (location) {
         return location.Gender == "Male";
       });
       this.renderlocations = males;
-      console.log(this.locations);
+      console.log(this.locations); //for testing purpose
+    },
+    all: function all() {
+      this.renderlocations = _toConsumableArray(this.locations);
     },
     handleCurrentLocation: function handleCurrentLocation(item) {
       this.currentLocation = item, this.infoWindowOpened = true;

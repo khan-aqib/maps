@@ -75,6 +75,7 @@ const app = new Vue({
     },
    
    mounted(){
+   	    //Mount To show all the Points on map
    	    this.renderlocations = [...this.locations];
    	    console.log(this.renderlocations);
    },
@@ -84,16 +85,17 @@ const app = new Vue({
 
     	femaleGender(){
     		let females = this.locations.filter(location =>  location.Gender =="Female");
-    		
     		this.renderlocations = females;
-    		console.log(this.locations);
+    		console.log(this.locations);//for testing purpose
     	},
     	maleGender(){
-    		//this.renderlocations = [...this.locations];
     		let males = this.locations.filter(location =>  location.Gender =="Male");    		
     		this.renderlocations = males;
-    		console.log(this.locations);
+    		console.log(this.locations);//for testing purpose
     		
+    	},
+    	all(){
+    		this.renderlocations = [...this.locations];
     	},
     	handleCurrentLocation(item){
            this.currentLocation = item,

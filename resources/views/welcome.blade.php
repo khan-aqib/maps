@@ -48,7 +48,7 @@
                         <div class="column box">
                                 <gmap-map
                                     :center="mapCenter"
-                                    :zoom="5"
+                                    :zoom="1"
                                     style="width: 100%; height: 700px;">
                                  <gmap-info-window
                                     :options="infoWindowOptions"
@@ -65,7 +65,6 @@
                                       </div>
                                  </gmap-info-window>
                                  <gmap-marker
-
                                           v-for="item in renderlocations"                                           
                                           :key="item.id"
                                           :position="{lat:item.Lat,lng:item.Long}"                      
@@ -74,15 +73,16 @@
                                           @click="handleCurrentLocation(item)"
 
                                     ></gmap-marker>
-
-
-                                    
-
                               </gmap-map>
                            </div> 
                           <div class="column">
-                              <button class="button is-danger" @click="femaleGender">Females</button>
-                              <button class="button is-info" @click="maleGender">Male</button>
+                              <div class="box">
+                                <button class="button is-success" @click="all">All</button>
+                                 <button class="button is-danger" @click="femaleGender">Display Females</button>
+                                  <button class="button is-info" @click="maleGender">Display Male</button>
+
+                              </div>
+                              
                                <table class="table box is-striped">
                                   <thead>
                                     <tr>
