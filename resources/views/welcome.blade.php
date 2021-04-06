@@ -50,16 +50,39 @@
                                     :center="mapCenter"
                                     :zoom="5"
                                     style="width: 100%; height: 700px;">
-                                   <gmap-marker
-                                          v-for="item in locations" 
+                                 <gmap-info-window
+                                    :options="infoWindowOptions"
+                                    :position="infoWindowPosition"
+                                    :opened="infoWindowOpened"
+                                    @closeclick="HandleCloseWindow"
+                                  >
+                                      <div class="pointer-info">
+                                        <h5> Name: <span v-text="Name=currentLocation.Fname"> </span></h5>
+                                        <h5> Gender:<span v-text="Gender=currentLocation.Gender"></span></h5>
+                                        <h5> Latitude:<span v-text="Gender=currentLocation.Lat"></span></h5>
+                                        <h5> Longitude: <span v-text="Gender=currentLocation.Long"></span></h5>
+                                        
+                                      </div>
+                                 </gmap-info-window>
+                                 <gmap-marker
+
+                                          v-for="item in renderlocations"                                           
                                           :key="item.id"
                                           :position="{lat:item.Lat,lng:item.Long}"                      
                                           :clickable="true"
                                           :draggable="false"
+                                          @click="handleCurrentLocation(item)"
+
                                     ></gmap-marker>
+
+
+                                    
+
                               </gmap-map>
                            </div> 
                           <div class="column">
+                              <button class="button is-danger" @click="femaleGender">Females</button>
+                              <button class="button is-info" @click="maleGender">Male</button>
                                <table class="table box is-striped">
                                   <thead>
                                     <tr>
@@ -72,7 +95,8 @@
                                     </tr>
                                   </thead>
                                    <tbody>
-                                        <tr v-for="item in locations"   :key="item.id">                                 <td v-text="item.id"></td>
+                                        <tr v-for="item in renderlocations"  :key="item.id">
+                                            <td v-text="item.id"></td>
                                             <td v-text="item.Fname"></td>
                                             <td v-text="item.Lname"></td>
                                             <td v-text="item.Gender"></td>

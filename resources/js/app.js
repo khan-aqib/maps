@@ -40,6 +40,7 @@ const app = new Vue({
     el: '#app',
 
     data:{
+    	 renderlocations:[],
     	 locations:[  
     	            {id:1,Fname:"Audy",Lname:"MacKonochie",Gender:"Female",Lat:27.948308,Long:109.599191},
     	            {id:2,Fname:"Godard",Lname:"Matthiae",Gender:"Male",Lat:14.6306039,Long:121.0056925},
@@ -57,19 +58,69 @@ const app = new Vue({
 					{id:14,Fname:"Maegan",Lname:"Steggles",Gender:"Female",Lat:3.2572094,Long:-77.2864879},
 					{id:15,Fname:"Web",Lname:"Peasby",Gender:"Male",Lat:39.9041999,Long:116.4073963},
                     
-                 ]
+                 ],
+
+       
+       infoWindowOptions:{
+               pixelOffset:{
+               	 width:0,
+               	 height:-40
+               }
+       },
+
+      currentLocation:{},
+
+       infoWindowOpened:false
+
+    },
+   
+   mounted(){
+   	    this.renderlocations = [...this.locations];
+   	    console.log(this.renderlocations);
+   },
+
+
+    methods:{
+
+    	femaleGender(){
+    		let females = this.locations.filter(location =>  location.Gender =="Female");
+    		//this.locations = females;
+    		this.renderlocations = females;
+    		console.log(this.locations);
+    	},
+    	maleGender(){
+    		let males = this.locations.filter(location =>  location.Gender =="Male");
+    		//this.locations = males;
+    		this.renderlocations = males;
+    		console.log(this.locations);
+    		
+    	},
+    	handleCurrentLocation(item){
+           this.currentLocation = item,
+           this.infoWindowOpened = true
+    	},
+    	HandleCloseWindow(){
+    	   this.currentLocation = {},
+           this.infoWindowOpened = false
+    	}
     },
 
     computed:{
+   	 
     	mapCenter(){
-    		 
-    			return {
+  			return {
     				lat:this.locations[1].Lat,
     		     	lng:this.locations[1].Long
     			}
-    		
-    		
-    	}
+         	},
+
+         infoWindowPosition(){
+              return{
+                   lat:this.currentLocation.Lat,
+                   lng:this.currentLocation.Long,
+              }
+         },	
+
     }
    
 });
