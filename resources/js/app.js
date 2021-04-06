@@ -84,13 +84,13 @@ const app = new Vue({
 
     	femaleGender(){
     		let females = this.locations.filter(location =>  location.Gender =="Female");
-    		//this.locations = females;
+    		
     		this.renderlocations = females;
     		console.log(this.locations);
     	},
     	maleGender(){
-    		let males = this.locations.filter(location =>  location.Gender =="Male");
-    		//this.locations = males;
+    		//this.renderlocations = [...this.locations];
+    		let males = this.locations.filter(location =>  location.Gender =="Male");    		
     		this.renderlocations = males;
     		console.log(this.locations);
     		

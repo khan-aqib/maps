@@ -53448,15 +53448,14 @@ var app = new Vue({
       var females = this.locations.filter(function (location) {
         return location.Gender == "Female";
       });
-      this.locations = females;
       this.renderlocations = females;
       console.log(this.locations);
     },
     maleGender: function maleGender() {
+      //this.renderlocations = [...this.locations];
       var males = this.locations.filter(function (location) {
         return location.Gender == "Male";
       });
-      this.locations = males;
       this.renderlocations = males;
       console.log(this.locations);
     },
