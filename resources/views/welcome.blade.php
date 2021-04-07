@@ -84,10 +84,23 @@
                            </div> 
                           <div class="column">
                               <div class="box">
-
-                                <button class="button is-success" @click="all">All</button>
-                                 <button class="button is-danger" @click="femaleGender">Display Females</button>
-                                  <button class="button is-info" @click="maleGender">Display Male</button>
+                                 <div class="columns is-gapless">
+                                     <div class="column">
+                                          <button class="button is-success" @click="all">All</button>
+                                     </div>
+                                     <div class="column">
+                                           <button class="button is-danger" @click="femaleGender">Display Females</button>
+                                     </div>
+                                     <div class="column">
+                                          <button class="button is-info" @click="maleGender">Display Male</button>
+                                     </div>
+                                     <div class="column">
+                                         <input class="input"  type="text" placeholder="First Name" :value="name" class="form-control" @keyup.enter="doSearch"> 
+                                     </div>
+                                 </div>
+                                 
+                                
+                                 
                                   
                               </div>
                               

@@ -42,7 +42,7 @@ const app = new Vue({
     el: '#app',
 
     data:{
-    	 newName:'',
+    	 name:'',
     	 renderlocations:[],
     	 locations:[  
     	            {id:1,Fname:"Audy",Lname:"MacKonochie",Gender:"Female",Lat:27.948308,Long:109.599191},
@@ -89,17 +89,25 @@ const app = new Vue({
 
     	femaleGender(){
     		let females = this.locations.filter(location =>  location.Gender =="Female");
-    		this.renderlocations = females;
+    		return this.renderlocations = females;
     		console.log(this.locations);//for testing purpose
     	},
     	maleGender(){
     		let males = this.locations.filter(location =>  location.Gender =="Male");    		
-    		this.renderlocations = males;
+    		return this.renderlocations = males;
     		console.log(this.locations);//for testing purpose
     		
     	},
     	all(){
-    		this.renderlocations = [...this.locations];
+    		return this.renderlocations = [...this.locations];
+    	},
+    	doSearch(event){
+                       
+		     return this.renderlocations = this.locations.filter(location =>
+		             location.Fname.toLowerCase().includes(event.target.value.toLowerCase())
+		             ||  location.Lname.toLowerCase().includes(event.target.value.toLowerCase())
+		      )
+             
     	},
     	handleCurrentLocation(item){
            this.currentLocation = item,
@@ -126,6 +134,8 @@ const app = new Vue({
                    lng:this.currentLocation.Long,
               }
          },	
+
+         
 
     }
    

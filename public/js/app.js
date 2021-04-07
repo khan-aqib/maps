@@ -53444,7 +53444,7 @@ Vue.use(vue2_google_maps__WEBPACK_IMPORTED_MODULE_0__, {
 var app = new Vue({
   el: '#app',
   data: {
-    newName: '',
+    name: '',
     renderlocations: [],
     locations: [{
       id: 1,
@@ -53571,18 +53571,23 @@ var app = new Vue({
       var females = this.locations.filter(function (location) {
         return location.Gender == "Female";
       });
-      this.renderlocations = females;
+      return this.renderlocations = females;
       console.log(this.locations); //for testing purpose
     },
     maleGender: function maleGender() {
       var males = this.locations.filter(function (location) {
         return location.Gender == "Male";
       });
-      this.renderlocations = males;
+      return this.renderlocations = males;
       console.log(this.locations); //for testing purpose
     },
     all: function all() {
-      this.renderlocations = _toConsumableArray(this.locations);
+      return this.renderlocations = _toConsumableArray(this.locations);
+    },
+    doSearch: function doSearch(event) {
+      return this.renderlocations = this.locations.filter(function (location) {
+        return location.Fname.toLowerCase().includes(event.target.value.toLowerCase()) || location.Lname.toLowerCase().includes(event.target.value.toLowerCase());
+      });
     },
     handleCurrentLocation: function handleCurrentLocation(item) {
       this.currentLocation = item, this.infoWindowOpened = true;
