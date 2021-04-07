@@ -9,6 +9,12 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css">
+        <!-- Add these two line -->
+        <link rel="stylesheet" href="https://unpkg.com/vue-spinners@1.0.0/dist/vue-spinners.css">
+        <script src="https://unpkg.com/vue-spinners@1.0.0/dist/vue-spinners.browser.js"></script>
+
+        <!-- Import vue.js -->
+        <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
         <!-- Styles -->
         <style>
             html, body {
@@ -43,6 +49,7 @@
                     <h1> Google Maps With laravel and Vue</h1>
                 </div>
                   <div id="app" class="maps " >
+                    <tile-spinner></tile-spinner>
                      <div class="container">
                        <div class="columns">
                         <div class="column box">
@@ -77,10 +84,11 @@
                            </div> 
                           <div class="column">
                               <div class="box">
+
                                 <button class="button is-success" @click="all">All</button>
                                  <button class="button is-danger" @click="femaleGender">Display Females</button>
                                   <button class="button is-info" @click="maleGender">Display Male</button>
-
+                                  
                               </div>
                               
                                <table class="table box is-striped">

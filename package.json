@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "vue-spinners": "^1.0.2",
         "vue2-google-maps": "^0.10.7"
     }
 }

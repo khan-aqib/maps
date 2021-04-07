@@ -21,6 +21,8 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+Vue.component('tile-spinner', require('./components/TileSpinner.vue').default);
+
 
 
 /**
@@ -40,6 +42,7 @@ const app = new Vue({
     el: '#app',
 
     data:{
+    	 newName:'',
     	 renderlocations:[],
     	 locations:[  
     	            {id:1,Fname:"Audy",Lname:"MacKonochie",Gender:"Female",Lat:27.948308,Long:109.599191},
@@ -76,6 +79,7 @@ const app = new Vue({
    
    mounted(){
    	    //Mount To show all the Points on map
+
    	    this.renderlocations = [...this.locations];
    	    console.log(this.renderlocations);
    },
