@@ -95,7 +95,7 @@
                                           <button class="button is-info" @click="maleGender">Display Male</button>
                                      </div>
                                      <div class="column">
-                                         <input class="input"  type="text" placeholder="Fname/Lname" :value="name" class="form-control" @keyup.enter="doSearch"> 
+                                         <input class="input"  type="text" placeholder=" Fname/Lname" :value="name" class="form-control" @keyup.enter="doSearch"> 
                                      </div>
                                  </div>
                                  
