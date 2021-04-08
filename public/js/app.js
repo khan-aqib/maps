@@ -53445,6 +53445,8 @@ var app = new Vue({
   el: '#app',
   data: {
     name: '',
+    femaleIcon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_purple.png',
+    maleIcon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_blue.png',
     renderlocations: [],
     locations: [{
       id: 1,
@@ -53594,6 +53596,9 @@ var app = new Vue({
     },
     HandleCloseWindow: function HandleCloseWindow() {
       this.currentLocation = {}, this.infoWindowOpened = false;
+    },
+    handleGender: function handleGender(item) {
+      if (item.Gender == "Male") return this.maleIcon;else return this.femaleIcon;
     }
   },
   computed: {

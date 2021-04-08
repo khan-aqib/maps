@@ -56,6 +56,7 @@
                                 <gmap-map
                                     :center="mapCenter"
                                     :zoom="1"
+                                    
                                     style="width: 100%; height: 700px;">
                                  <gmap-info-window
                                     :options="infoWindowOptions"
@@ -74,7 +75,8 @@
                                  <gmap-marker
                                           v-for="item in renderlocations"                                           
                                           :key="item.id"
-                                          :position="{lat:item.Lat,lng:item.Long}"                      
+                                          :position="{lat:item.Lat,lng:item.Long}"       
+                                          :icon= "handleGender(item)"              
                                           :clickable="true"
                                           :draggable="false"
                                           @click="handleCurrentLocation(item)"

@@ -43,6 +43,8 @@ const app = new Vue({
 
     data:{
     	 name:'',
+    	 femaleIcon:'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_purple.png',
+    	 maleIcon:'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_blue.png',
     	 renderlocations:[],
     	 locations:[  
     	            {id:1,Fname:"Audy",Lname:"MacKonochie",Gender:"Female",Lat:27.948308,Long:109.599191},
@@ -116,7 +118,13 @@ const app = new Vue({
     	HandleCloseWindow(){
     	   this.currentLocation = {},
            this.infoWindowOpened = false
-    	}
+    	},
+    	handleGender(item){
+          if(item.Gender == "Male")
+          	return this.maleIcon;
+          else
+          	return this.femaleIcon;
+         }
     },
 
     computed:{
@@ -134,6 +142,7 @@ const app = new Vue({
                    lng:this.currentLocation.Long,
               }
          },	
+
 
          
 
